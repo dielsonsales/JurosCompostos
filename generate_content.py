@@ -16,7 +16,8 @@ def should_skip(path_obj):
     ignored_patterns = [
         'node_modules',
         'public',
-        '.next'
+        '.next',
+        'out',
     ]
 
     path_str = str(path_obj)
