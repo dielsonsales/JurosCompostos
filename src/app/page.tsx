@@ -8,8 +8,8 @@ export default function Home() {
     <div className={styles.mainContainer}>
       <main className={styles.mainPage}>
         <div>
-          <h1>Juros Compostos</h1>
-          <p>Simule a evolução do seu capital considerando aportes mensais e uma taxa recorrente.</p>
+          <h1 className="title">Juros Compostos</h1>
+          <p className="defaultText">Simule a evolução do seu capital considerando aportes mensais e uma taxa recorrente.</p>
         </div>
         <div className={styles.cardsContainer}>
           <Card>

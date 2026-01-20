@@ -3,13 +3,13 @@ import styles from "./inputs.module.css";
 export default function Inputs() {
   return (
     <div>
-      <p>Valor inicial (R$)</p>
+      <p className="defaultText">Valor inicial (R$)</p>
       <input type="text" className={styles.input} />
-      <p>Aporte mensal (R$)</p>
+      <p className="defaultText">Aporte mensal (R$)</p>
       <input type="text" className={styles.input} />
-      <p>Taxa (%)</p>
+      <p className="defaultText">Taxa (%)</p>
       <input type="text" className={styles.input} />
-      <p>Período</p>
+      <p className="defaultText">Período</p>
       <input type="text" className={styles.input} />
     </div>
   );

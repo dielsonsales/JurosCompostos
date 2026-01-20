@@ -2,3 +2,16 @@ html, body {
   height: 100dvh;
   margin: 0;
 }
+
+.title {
+  font-size: 50;
+}
+
+.subTitle {
+  font-size: 13;
+  text-transform: uppercase;
+}
+
+.defaultText {
+  font-size: 16px;
+}
