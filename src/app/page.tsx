@@ -6,7 +6,7 @@ import Card from "@/components/card/card";
 export default function Home() {
   return (
     <>
-      <main style={{ backgroundColor: "lightGreen" }}>
+      <main className={styles.mainPage}>
         <div>
           <h1>Juros Compostos</h1>
           <p>Simule a evolução do seu capital considerando aportes mensais e uma taxa recorrente.</p>
