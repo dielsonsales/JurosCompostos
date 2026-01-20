@@ -1,6 +1,11 @@
+.mainContainer {
+  background-color: rgb(221, 230, 242);
+  display: flex;
+  flex-direction: column;
+}
+
 .mainPage {
   max-width: 800px;
-  background-color: lightgreen;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
@@ -9,5 +14,6 @@
 .cardsContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }

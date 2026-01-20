@@ -5,7 +5,7 @@ import Card from "@/components/card/card";
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.mainContainer}>
       <main className={styles.mainPage}>
         <div>
           <h1>Juros Compostos</h1>
@@ -26,6 +26,6 @@ export default function Home() {
       <footer>
         <span>Dielson Sales de Carvalho</span>
       </footer>
-    </>
+    </div>
   );
 }
