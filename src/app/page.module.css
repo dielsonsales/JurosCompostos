@@ -2,6 +2,7 @@
   background-color: rgb(221, 230, 242);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .mainPage {
@@ -9,6 +10,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+  flex-grow: 1;
 }
 
 .cardsContainer {
