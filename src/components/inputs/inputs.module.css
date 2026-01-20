@@ -1,0 +1,11 @@
+.input {
+  border: solid;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: rgb(240, 242, 247);
+  box-shadow: none;
+  outline: none;
+  background: none;
+  padding: 5px;
+  width: 100%;
+}
