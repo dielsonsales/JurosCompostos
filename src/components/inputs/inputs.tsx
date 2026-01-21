@@ -38,6 +38,9 @@ export default function Inputs({
         inputMode="decimal"
         className={styles.input}
         value={initialValue}
+        onChange={(newValue) =>
+          onInitialValueChange(Number(newValue.target.value))
+        }
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Aporte mensal (R$)
@@ -47,6 +50,9 @@ export default function Inputs({
         inputMode="decimal"
         className={styles.input}
         value={monthlyInvestment}
+        onChange={(newValue) =>
+          onMonthlyInvestmentChange(Number(newValue.target.value))
+        }
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Taxa (%)
@@ -61,6 +67,9 @@ export default function Inputs({
           inputMode="decimal"
           className={styles.input}
           value={interestRate}
+          onChange={(newValue) =>
+            onInterestRateChange(Number(newValue.target.value))
+          }
         />
       </div>
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
@@ -76,6 +85,7 @@ export default function Inputs({
           inputMode="decimal"
           className={styles.input}
           value={period}
+          onChange={(newValue) => onPeriodChange(Number(newValue.target.value))}
         />
       </div>
     </div>
