@@ -16,6 +16,10 @@ interface InputsProps {
   onPeriodUnitChange: (value: PeriodUnit) => void;
 }
 
+function safeNumberValue(value: string): number {
+  return Number(value) || 0;
+}
+
 export default function Inputs({
   initialValue,
   onInitialValueChange,
@@ -39,7 +43,7 @@ export default function Inputs({
         className={styles.input}
         value={initialValue}
         onChange={(newValue) =>
-          onInitialValueChange(Number(newValue.target.value))
+          onInitialValueChange(safeNumberValue(newValue.target.value))
         }
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
@@ -51,16 +55,23 @@ export default function Inputs({
         className={styles.input}
         value={monthlyInvestment}
         onChange={(newValue) =>
-          onMonthlyInvestmentChange(Number(newValue.target.value))
+          onMonthlyInvestmentChange(safeNumberValue(newValue.target.value))
         }
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Taxa (%)
       </p>
       <div className={styles.dropDownContainer}>
-        <select className={styles.dropDown}>
-          <option value="mensal">Mensal</option>
-          <option value="anual">Anual</option>
+        <select
+          className={styles.dropDown}
+          value={timeUnit}
+          onChange={(newValue) => {
+            const newTimeUnit = newValue.target.value as TimeUnit;
+            onTimeUnitChange(newTimeUnit);
+          }}
+        >
+          <option value={TimeUnit.Monthly}>Mensal</option>
+          <option value={TimeUnit.Yearly}>Anual</option>
         </select>
         <input
           type="text"
@@ -68,7 +79,7 @@ export default function Inputs({
           className={styles.input}
           value={interestRate}
           onChange={(newValue) =>
-            onInterestRateChange(Number(newValue.target.value))
+            onInterestRateChange(safeNumberValue(newValue.target.value))
           }
         />
       </div>
@@ -76,16 +87,25 @@ export default function Inputs({
         Período
       </p>
       <div className={styles.dropDownContainer}>
-        <select className={styles.dropDown}>
-          <option value="meses">Meses</option>
-          <option value="anos">Anos</option>
+        <select
+          className={styles.dropDown}
+          value={periodUnit}
+          onChange={(newValue) => {
+            const newPeriodUnit = newValue.target.value as PeriodUnit;
+            onPeriodUnitChange(newPeriodUnit);
+          }}
+        >
+          <option value={PeriodUnit.Months}>Meses</option>
+          <option value={PeriodUnit.Years}>Anos</option>
         </select>
         <input
           type="text"
           inputMode="decimal"
           className={styles.input}
           value={period}
-          onChange={(newValue) => onPeriodChange(Number(newValue.target.value))}
+          onChange={(newValue) =>
+            onPeriodChange(safeNumberValue(newValue.target.value))
+          }
         />
       </div>
     </div>
