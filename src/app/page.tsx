@@ -14,6 +14,12 @@ const defaultTimeUnit = TimeUnit.Monthly;
 const defaultPeriod = 12;
 const defaultPeriodUnit = PeriodUnit.Months;
 
+interface CalculationResult {
+  totalFinal: number;
+  totalInvested: number;
+  totalInterest: number;
+}
+
 function calculateFinalResult(
   initialValue: number,
   monthlyInvestment: number,
@@ -21,22 +27,41 @@ function calculateFinalResult(
   timeUnit: TimeUnit,
   period: number,
   periodUnit: PeriodUnit,
-) {
+): CalculationResult {
   // If user provided yearly rate, convert to monthly
-  const monthlyRate = timeUnit === TimeUnit.Yearly
-    ? Math.pow(1 + interestRate / 100, 1/12) - 1
-    : interestRate / 100;
-  // Normalize period to totalMonths
-  const totalMonths = periodUnit === PeriodUnit.Years
-    ? period * 10
-    : period;
-  // Prevents division by 0 if interest rate is 0
-  if (monthlyRate === 0) return initialValue + (monthlyInvestment * totalMonths);
+  const monthlyRate =
+    timeUnit === TimeUnit.Yearly
+      ? Math.pow(1 + interestRate / 100, 1 / 12) - 1
+      : interestRate / 100;
 
-  // Compound interest formula
-  const initialCompounded = initialValue * Math.pow(1 + monthlyRate, totalMonths);
-  const contributionsCompounded = monthlyInvestment * (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate;
-  return initialCompounded + contributionsCompounded;
+  // Normalize period to totalMonths
+  const totalMonths = periodUnit === PeriodUnit.Years ? period * 10 : period;
+
+  const totalInvested = initialValue + monthlyInvestment * totalMonths;
+
+  // Prevents division by 0 if interest rate is 0
+  if (monthlyRate === 0) {
+    return {
+      totalFinal: totalInvested,
+      totalInvested: totalInvested,
+      totalInterest: 0,
+    };
+  }
+
+  const initialCompounded =
+    initialValue * Math.pow(1 + monthlyRate, totalMonths);
+  const contributionsCompounded =
+    (monthlyInvestment * (Math.pow(1 + monthlyRate, totalMonths) - 1)) /
+    monthlyRate;
+
+  const totalFinal = initialCompounded + contributionsCompounded;
+  const totalInterest = totalFinal - totalInvested;
+
+  return {
+    totalFinal,
+    totalInvested,
+    totalInterest,
+  };
 }
 
 export default function Home() {
@@ -88,7 +113,11 @@ export default function Home() {
             />
           </Card>
           <Card>
-            <Result finalResult={finalResult} />
+            <Result
+              finalResult={finalResult.totalFinal}
+              totalInvested={finalResult.totalInvested}
+              totalInterest={finalResult.totalInterest}
+            />
           </Card>
         </div>
         <div>
