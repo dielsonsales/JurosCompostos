@@ -5,9 +5,9 @@ export default function Inputs() {
     <div className={styles.inputsContainer}>
       <p className="defaultText">Valor inicial (R$)</p>
       <input type="text" inputMode="decimal" className={styles.input} />
-      <p className="defaultText">Aporte mensal (R$)</p>
+      <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>Aporte mensal (R$)</p>
       <input type="text" inputMode="decimal" className={styles.input} />
-      <p className="defaultText">Taxa (%)</p>
+      <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>Taxa (%)</p>
       <div className={styles.dropDownContainer}>
         <select className={styles.dropDown}>
           <option value="mensal">Mensal</option>
@@ -15,7 +15,7 @@ export default function Inputs() {
         </select>
         <input type="text" inputMode="decimal" className={styles.input} />
       </div>
-      <p className="defaultText">Período</p>
+      <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>Período</p>
       <div className={styles.dropDownContainer}>
         <select className={styles.dropDown}>
           <option value="meses">Meses</option>
