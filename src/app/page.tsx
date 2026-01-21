@@ -35,7 +35,7 @@ function calculateFinalResult(
       : interestRate / 100;
 
   // Normalize period to totalMonths
-  const totalMonths = periodUnit === PeriodUnit.Years ? period * 10 : period;
+  const totalMonths = periodUnit === PeriodUnit.Years ? period * 12 : period;
 
   const totalInvested = initialValue + monthlyInvestment * totalMonths;
 
