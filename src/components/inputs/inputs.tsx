@@ -2,7 +2,7 @@ import styles from "./inputs.module.css";
 
 export default function Inputs() {
   return (
-    <div>
+    <div className={styles.inputsContainer}>
       <p className="defaultText">Valor inicial (R$)</p>
       <input type="text" inputMode="decimal" className={styles.input} />
       <p className="defaultText">Aporte mensal (R$)</p>
