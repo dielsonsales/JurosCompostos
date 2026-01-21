@@ -22,7 +22,21 @@ function calculateFinalResult(
   period: number,
   periodUnit: PeriodUnit,
 ) {
-  return initialValue;
+  // If user provided yearly rate, convert to monthly
+  const monthlyRate = timeUnit === TimeUnit.Yearly
+    ? Math.pow(1 + interestRate / 100, 1/12) - 1
+    : interestRate / 100;
+  // Normalize period to totalMonths
+  const totalMonths = periodUnit === PeriodUnit.Years
+    ? period * 10
+    : period;
+  // Prevents division by 0 if interest rate is 0
+  if (monthlyRate === 0) return initialValue + (monthlyInvestment * totalMonths);
+
+  // Compound interest formula
+  const initialCompounded = initialValue * Math.pow(1 + monthlyRate, totalMonths);
+  const contributionsCompounded = monthlyInvestment * (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate;
+  return initialCompounded + contributionsCompounded;
 }
 
 export default function Home() {

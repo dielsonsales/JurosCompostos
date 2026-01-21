@@ -4,8 +4,17 @@ interface ResultProps {
   finalResult: number;
 }
 
+function formatCurrency(value: number): string {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
 export default function Result({ finalResult }: ResultProps) {
-  const formattedResult = `R$ ${finalResult}`;
+  const formattedResult = formatCurrency(finalResult);
   return (
     <div>
       <p className="subTitle">Resultado estimado</p>
