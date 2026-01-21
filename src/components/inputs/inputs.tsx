@@ -33,11 +33,21 @@ export default function Inputs({
   return (
     <div className={styles.inputsContainer}>
       <p className="defaultText">Valor inicial (R$)</p>
-      <input type="text" inputMode="decimal" className={styles.input} />
+      <input
+        type="text"
+        inputMode="decimal"
+        className={styles.input}
+        value={initialValue}
+      />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Aporte mensal (R$)
       </p>
-      <input type="text" inputMode="decimal" className={styles.input} />
+      <input
+        type="text"
+        inputMode="decimal"
+        className={styles.input}
+        value={monthlyInvestment}
+      />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Taxa (%)
       </p>
@@ -46,7 +56,12 @@ export default function Inputs({
           <option value="mensal">Mensal</option>
           <option value="anual">Anual</option>
         </select>
-        <input type="text" inputMode="decimal" className={styles.input} />
+        <input
+          type="text"
+          inputMode="decimal"
+          className={styles.input}
+          value={interestRate}
+        />
       </div>
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Período
@@ -56,7 +71,12 @@ export default function Inputs({
           <option value="meses">Meses</option>
           <option value="anos">Anos</option>
         </select>
-        <input type="text" inputMode="decimal" className={styles.input} />
+        <input
+          type="text"
+          inputMode="decimal"
+          className={styles.input}
+          value={period}
+        />
       </div>
     </div>
   );

@@ -7,15 +7,24 @@ import Card from "@/components/card/card";
 import { useState } from "react";
 import { PeriodUnit, TimeUnit } from "@/lib/definitions";
 
+const defaultInitialValue = 1500;
+const defaultMonthlyInvestment = 200;
+const defaultInterestRate = 0.8;
+const defaultTimeUnit = TimeUnit.Monthly;
+const defaultPeriod = 12;
+const defaultPeriodUnit = PeriodUnit.Months;
+
 export default function Home() {
-  const [initialValue, setInitialValue] = useState(0);
-  const [monthlyInvestment, setMonthlyInvestment] = useState(0);
+  const [initialValue, setInitialValue] = useState(defaultInitialValue);
+  const [monthlyInvestment, setMonthlyInvestment] = useState(
+    defaultMonthlyInvestment,
+  );
 
-  const [interestRate, setInterestRate] = useState(0);
-  const [timeUnit, setTimeUnit] = useState(TimeUnit.Monthly);
+  const [interestRate, setInterestRate] = useState(defaultInterestRate);
+  const [timeUnit, setTimeUnit] = useState(defaultTimeUnit);
 
-  const [period, setPeriod] = useState(0);
-  const [periodUnit, setPeriodUnit] = useState(PeriodUnit.Months);
+  const [period, setPeriod] = useState(defaultPeriod);
+  const [periodUnit, setPeriodUnit] = useState(defaultPeriodUnit);
 
   return (
     <div className={styles.mainContainer}>
