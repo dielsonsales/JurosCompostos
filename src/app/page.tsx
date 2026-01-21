@@ -14,6 +14,17 @@ const defaultTimeUnit = TimeUnit.Monthly;
 const defaultPeriod = 12;
 const defaultPeriodUnit = PeriodUnit.Months;
 
+function calculateFinalResult(
+  initialValue: number,
+  monthlyInvestment: number,
+  interestRate: number,
+  timeUnit: TimeUnit,
+  period: number,
+  periodUnit: PeriodUnit,
+) {
+  return initialValue;
+}
+
 export default function Home() {
   const [initialValue, setInitialValue] = useState(defaultInitialValue);
   const [monthlyInvestment, setMonthlyInvestment] = useState(
@@ -25,6 +36,15 @@ export default function Home() {
 
   const [period, setPeriod] = useState(defaultPeriod);
   const [periodUnit, setPeriodUnit] = useState(defaultPeriodUnit);
+
+  const finalResult = calculateFinalResult(
+    initialValue,
+    monthlyInvestment,
+    interestRate,
+    timeUnit,
+    period,
+    periodUnit,
+  );
 
   return (
     <div className={styles.mainContainer}>
@@ -54,7 +74,7 @@ export default function Home() {
             />
           </Card>
           <Card>
-            <Result />
+            <Result finalResult={finalResult} />
           </Card>
         </div>
         <div>
