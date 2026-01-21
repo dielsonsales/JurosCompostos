@@ -1,6 +1,35 @@
+import { PeriodUnit, TimeUnit } from "@/lib/definitions";
 import styles from "./inputs.module.css";
 
-export default function Inputs() {
+interface InputsProps {
+  initialValue: number;
+  onInitialValueChange: (value: number) => void;
+  monthlyInvestment: number;
+  onMonthlyInvestmentChange: (value: number) => void;
+  interestRate: number;
+  onInterestRateChange: (value: number) => void;
+  timeUnit: TimeUnit;
+  onTimeUnitChange: (value: TimeUnit) => void;
+  period: number;
+  onPeriodChange: (value: number) => void;
+  periodUnit: PeriodUnit;
+  onPeriodUnitChange: (value: PeriodUnit) => void;
+}
+
+export default function Inputs({
+  initialValue,
+  onInitialValueChange,
+  monthlyInvestment,
+  onMonthlyInvestmentChange,
+  interestRate,
+  onInterestRateChange,
+  timeUnit,
+  onTimeUnitChange,
+  period,
+  onPeriodChange,
+  periodUnit,
+  onPeriodUnitChange,
+}: InputsProps) {
   return (
     <div className={styles.inputsContainer}>
       <p className="defaultText">Valor inicial (R$)</p>
