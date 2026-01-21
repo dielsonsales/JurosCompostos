@@ -1,6 +1,7 @@
 html, body {
   height: 100dvh;
   margin: 0;
+  background-color: rgb(221, 230, 242);
 }
 
 .title {
