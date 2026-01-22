@@ -17,11 +17,13 @@ p {
 
 .title {
   font-size: 42px;
+  margin: 1px;
 }
 
 .subTitle {
   font-size: 13px;
   text-transform: uppercase;
+  color: darkgray;
 }
 
 .defaultText {

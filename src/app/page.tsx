@@ -89,6 +89,7 @@ export default function Home() {
     <div className={styles.mainContainer}>
       <main className={styles.mainPage}>
         <div>
+          <p className="subTitle">Calculadora</p>
           <h1 className="title">Juros Compostos</h1>
           <p className="defaultText">
             Simule a evolução do seu capital considerando aportes mensais e uma
