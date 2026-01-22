@@ -1,5 +1,6 @@
 import { PeriodUnit, TimeUnit } from "@/lib/definitions";
 import styles from "./inputs.module.css";
+import { NumericFormat } from "react-number-format";
 
 interface InputsProps {
   initialValue: number;
@@ -37,26 +38,32 @@ export default function Inputs({
   return (
     <div className={styles.inputsContainer}>
       <p className="defaultText">Valor inicial (R$)</p>
-      <input
-        type="text"
-        inputMode="decimal"
+      <NumericFormat
         className={styles.input}
         value={initialValue}
-        onChange={(newValue) =>
-          onInitialValueChange(safeNumberValue(newValue.target.value))
-        }
+        thousandSeparator="."
+        decimalSeparator=","
+        decimalScale={2}
+        fixedDecimalScale
+        allowNegative={false}
+        onValueChange={(values) => {
+          onInitialValueChange(values.floatValue || 0);
+        }}
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Aporte mensal (R$)
       </p>
-      <input
-        type="text"
-        inputMode="decimal"
+      <NumericFormat
         className={styles.input}
         value={monthlyInvestment}
-        onChange={(newValue) =>
-          onMonthlyInvestmentChange(safeNumberValue(newValue.target.value))
-        }
+        thousandSeparator="."
+        decimalSeparator=","
+        decimalScale={2}
+        fixedDecimalScale
+        allowNegative={false}
+        onValueChange={(values) => {
+          onMonthlyInvestmentChange(values.floatValue || 0);
+        }}
       />
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
         Taxa (%)
@@ -73,14 +80,17 @@ export default function Inputs({
           <option value={TimeUnit.Monthly}>Mensal</option>
           <option value={TimeUnit.Yearly}>Anual</option>
         </select>
-        <input
-          type="text"
-          inputMode="decimal"
+        <NumericFormat
           className={styles.input}
           value={interestRate}
-          onChange={(newValue) =>
-            onInterestRateChange(safeNumberValue(newValue.target.value))
-          }
+          thousandSeparator="."
+          decimalSeparator=","
+          decimalScale={2}
+          fixedDecimalScale
+          allowNegative={false}
+          onValueChange={(values) => {
+            onInterestRateChange(values.floatValue || 0);
+          }}
         />
       </div>
       <p className="defaultText" style={{ marginTop: 15, marginBottom: 5 }}>
@@ -98,14 +108,14 @@ export default function Inputs({
           <option value={PeriodUnit.Months}>Meses</option>
           <option value={PeriodUnit.Years}>Anos</option>
         </select>
-        <input
-          type="text"
-          inputMode="decimal"
+        <NumericFormat
           className={styles.input}
           value={period}
-          onChange={(newValue) =>
-            onPeriodChange(safeNumberValue(newValue.target.value))
-          }
+          decimalScale={0}
+          allowNegative={false}
+          onValueChange={(values) => {
+            onPeriodChange(values.floatValue || 0);
+          }}
         />
       </div>
     </div>
