@@ -124,8 +124,8 @@ export default function Home() {
           <h2>Evolução de patrimônio</h2>
         </div>
       </main>
-      <footer>
-        <span>Dielson Sales de Carvalho</span>
+      <footer className={styles.mainPageFooter}>
+        <span>Dielson Sales de Carvalho © 2026</span>
       </footer>
     </div>
   );
