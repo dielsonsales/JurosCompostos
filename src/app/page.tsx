@@ -121,9 +121,6 @@ export default function Home() {
             />
           </Card>
         </div>
-        <div>
-          <h2>Evolução de patrimônio</h2>
-        </div>
       </main>
       <footer className={styles.mainPageFooter}>
         <span>Dielson Sales de Carvalho © 2026</span>
